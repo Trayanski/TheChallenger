@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -22,9 +23,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.trayan.thechallenger.ui.home.HomeActivity;
 import com.trayan.thechallenger.R;
-import com.trayan.thechallenger.ui.login.LoginViewModel;
-import com.trayan.thechallenger.ui.login.LoginViewModelFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -123,6 +123,9 @@ public class LoginActivity extends AppCompatActivity {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+
+        // go to Home Activity
+        startActivity(new Intent(this, HomeActivity.class));
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {
